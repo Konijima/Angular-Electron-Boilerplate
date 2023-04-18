@@ -6,7 +6,6 @@ let win: BrowserWindow | null;
 
 // Create the browser window.
 function createWindow() {
-
     win = new BrowserWindow({
         width: 1200,
         height: 800,
@@ -18,18 +17,17 @@ function createWindow() {
         }
     });
 
-    // Emitted when the window is ready to show.
+    // Emitted when the window is has finished loading.
     win.webContents.on('did-finish-load', () => {
         win?.webContents.setVisualZoomLevelLimits(1, 1);
         win?.webContents.setZoomFactor(1);
 
-        // Reload the window when the electron app is recompiled.
+        // Automatically open the DevTools in development mode.
         if (process.env.NODE_ENV === 'development') {
-            // Open the devtools in development mode.
             win?.webContents.openDevTools({ mode: 'detach' });
         }
         else {
-            // disable menu in production mode
+            // disable menu in production mode *optional*
             win?.removeMenu();
         }
     });
@@ -39,11 +37,11 @@ function createWindow() {
         win = null;
     });
 
-    // Load the angular app in development mode.
+    // Load the angular app in development mode from the webpack dev server.
     if (process.env.NODE_ENV === 'development') {
         win.loadURL('http://localhost:4200');
     }
-    // Load the index.html of the angular app.
+    // Load the index.html of the angular app in production mode.
     else {
         win.loadURL(url.format({
             pathname: path.join(__dirname, '..', 'dist', 'angular-frontend', 'index.html'),
