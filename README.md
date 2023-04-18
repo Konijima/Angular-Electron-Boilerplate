@@ -1,16 +1,25 @@
-# Angular-Electron-Boilerplate
+# Angular Electron Boilerplate
+![AngularElectronBoilerplateImage](https://repository-images.githubusercontent.com/629258752/ceb9dbcd-0afd-4cda-84bf-5b5ed62fe65d)
 A starter template that combines Angular and Electron for building cross-platform desktop apps. It provides a clean structure and pre-configured settings for Angular and Electron, so you can focus on building your app. Create desktop apps for Windows, macOS, and Linux with web technologies you know.
 
-## Installation
+| [Wiki](https://github.com/Konijima/Angular-Electron-Boilerplate/wiki) | [Discussions](https://github.com/Konijima/Angular-Electron-Boilerplate/discussions) | [Issues](https://github.com/Konijima/Angular-Electron-Boilerplate/issues) |
+| - | - | - |
+
+<br>
+
+## Usage
 1. Clone the repository:   
     ```git clone https://github.com/Konijima/Angular-Electron-Boilerplate.git```
 2. Run npm install:   
     ```npm install```
-3. Development  
+3. Run in dev mode:  
     ```npm run electron-dev```
+4. Build the application:  
+    ```npm run electron-build```
 
-## Scripts in this code are used to run various commands related to the Angular and Electron frameworks. 
+<br>
 
+## Scripts 
 The `"ng"` script runs the `ng` command, which is used to create new projects, generate components, and more. 
 
 The `"ng-serve"` script runs the `ng serve` command, which starts a local development server for testing purposes. 
@@ -36,3 +45,5 @@ The `"electron-watch"` script runs the `cross-env NODE_ENV=development nodemon -
 The `"electron-dev"` script runs the concurrently `"npm run ng-serve" "npm run electron-compile-watch" "npm run electron-declaration-watch" "npm run electron-watch"` command, which runs all of the necessary commands for developing with both Angular and Electron simultaneously. 
 
 Finally, the `"electron-build"` script runs the `npm run ng-build && npm run electron-compile && electron-builder` command, which builds the Angular project, compiles the Electron project, and builds the Electron application.
+
+<br>
