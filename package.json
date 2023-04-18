@@ -1,0 +1,74 @@
+{
+  "name": "angular-electron-boilerplate",
+  "description": "Angular Electron Boilerplate",
+  "author": "Konijima",
+  "main": "dist/main.js",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "ng-serve": "ng serve",
+    "ng-build": "ng build",
+    "ng-watch": "ng build --watch --configuration development",
+    "ng-test": "ng test",
+    "electron-declaration": "node apiDeclaration.js",
+    "electron-declaration-watch": "nodemon --watch electron/API --ext .ts --exec node apiDeclaration.js",
+    "electron-compile": "tsc --project electron && npm run electron-declaration",
+    "electron-compile-watch": "tsc --watch --project electron",
+    "electron-start": "cross-env NODE_ENV=development electron .",
+    "electron-watch": "cross-env NODE_ENV=development nodemon --watch dist --exec electron .",
+    "electron-dev": "concurrently \"npm run ng-serve\" \"npm run electron-compile-watch\" \"npm run electron-declaration-watch\" \"npm run electron-watch\"",
+    "electron-build": "npm run ng-build && npm run electron-compile && electron-builder"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^15.2.0",
+    "@angular/common": "^15.2.0",
+    "@angular/compiler": "^15.2.0",
+    "@angular/core": "^15.2.0",
+    "@angular/forms": "^15.2.0",
+    "@angular/platform-browser": "^15.2.0",
+    "@angular/platform-browser-dynamic": "^15.2.0",
+    "@angular/router": "^15.2.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.12.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^15.2.4",
+    "@angular/cli": "~15.2.4",
+    "@angular/compiler-cli": "^15.2.0",
+    "@types/jasmine": "~4.3.0",
+    "concurrently": "^8.0.1",
+    "cross-env": "^7.0.3",
+    "electron": "^24.1.2",
+    "electron-builder": "^23.6.0",
+    "jasmine-core": "~4.5.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "nodemon": "^2.0.22",
+    "typescript": "~4.9.4"
+  },
+  "build": {
+    "appId": "com.example.angular-electron-boilerplate",
+    "productName": "AngularElectronBoilerplate",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    },
+    "asar": true
+  }
+}
