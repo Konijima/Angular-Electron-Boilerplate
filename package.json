@@ -1,8 +1,9 @@
 {
   "name": "angular-electron-boilerplate",
-  "description": "Angular Electron Boilerplate",
+  "description": "A starter template that combines Angular and Electron for building cross-platform desktop apps.",
   "author": "Konijima",
   "main": "dist/main.js",
+  "license": "MIT",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
