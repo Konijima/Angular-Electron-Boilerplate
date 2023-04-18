@@ -53,4 +53,4 @@ const folderPath = path.resolve(__dirname, 'electron', 'API');
 const outputFile = path.resolve(__dirname, 'src', 'electron.d.ts');
 generateTypeDefinitions(folderPath, outputFile);
 
-console.log('electron.d.ts has been updated!');
+console.log('[electron.d.ts] has been updated successfully!');

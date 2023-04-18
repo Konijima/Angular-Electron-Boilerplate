@@ -9,7 +9,9 @@ export class AppComponent {
   title = 'angular-frontend';
 
   constructor() {
-    // Verify that the API object is available in the global window object
-    console.log(window.Test, window.Test.hello(), window.Test.world());
+    // A simple test to see if the Test object is available
+    console.log(window.Test);
+    console.log(window.Test.hello());
+    console.log(window.Test.world());
   }
 }
