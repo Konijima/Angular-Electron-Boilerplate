@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular-frontend';
 
+  electronInterface!: TestInterface; // Can access API exported interface
+
   constructor() {
     // A simple test to see if the Test object is available
     console.log(window.Test);
